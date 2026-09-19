@@ -1,0 +1,48 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "ZyTemp CO2 monitor",
+        "description": "A sensor was found at {path}. Add it to Home Assistant?"
+      }
+    },
+    "error": {
+      "no_device": "No ZyAura ZG01 sensor found. Check that it is plugged in, and that /dev is shared with the container if Home Assistant runs in one.",
+      "permission_denied": "The sensor was found but could not be opened. Install the udev rule so that the hidraw node is readable.",
+      "cannot_connect": "The sensor was found but did not answer."
+    },
+    "abort": {
+      "already_configured": "The sensor is already set up."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Alarm thresholds",
+        "data": {
+          "co2_warning": "CO2 warning threshold",
+          "co2_critical": "CO2 critical threshold",
+          "temperature_offset": "Temperature offset"
+        },
+        "data_description": {
+          "co2_warning": "The warning alarm turns on above this level.",
+          "co2_critical": "The critical alarm turns on above this level. Both alarms clear 50 ppm below their threshold so they do not flap.",
+          "temperature_offset": "Added to every reading. The sensor sits next to the electronics and tends to read 1-3 °C high."
+        }
+      }
+    },
+    "error": {
+      "critical_not_above_warning": "The critical threshold must be higher than the warning threshold."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "co2": { "name": "CO2" },
+      "temperature": { "name": "Temperature" }
+    },
+    "binary_sensor": {
+      "co2_warning": { "name": "CO2 warning" },
+      "co2_critical": { "name": "CO2 critical" }
+    }
+  }
+}

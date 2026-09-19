@@ -1,0 +1,12 @@
+{
+  "domain": "zytemp_co2",
+  "name": "ZyTemp CO2 Monitor",
+  "codeowners": ["@Wayfarer545"],
+  "config_flow": true,
+  "documentation": "https://github.com/Wayfarer545/co2_monitor",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/Wayfarer545/co2_monitor/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}
