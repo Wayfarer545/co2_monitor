@@ -37,12 +37,33 @@
   },
   "entity": {
     "sensor": {
-      "co2": { "name": "CO2" },
-      "temperature": { "name": "Temperature" }
+      "co2": {
+        "name": "CO2"
+      },
+      "temperature": {
+        "name": "Temperature"
+      }
     },
     "binary_sensor": {
-      "co2_warning": { "name": "CO2 warning" },
-      "co2_critical": { "name": "CO2 critical" }
+      "co2_warning": {
+        "name": "CO2 warning"
+      },
+      "co2_critical": {
+        "name": "CO2 critical"
+      }
+    },
+    "number": {
+      "co2_warning": {
+        "name": "CO2 warning threshold"
+      },
+      "co2_critical": {
+        "name": "CO2 critical threshold"
+      }
+    }
+  },
+  "exceptions": {
+    "critical_not_above_warning": {
+      "message": "The critical threshold ({critical} ppm) must be higher than the warning threshold ({warning} ppm)."
     }
   }
 }

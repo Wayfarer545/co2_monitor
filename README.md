@@ -20,6 +20,8 @@ reads the device directly so Home Assistant can record it and act on it.
 | Temperature | sensor | °C, with a configurable offset |
 | CO2 warning | binary_sensor | `problem`, on above the warning threshold |
 | CO2 critical | binary_sensor | `problem`, on above the critical threshold |
+| CO2 warning threshold | number | the warning threshold itself, editable |
+| CO2 critical threshold | number | the critical threshold itself, editable |
 
 Both alarms clear 50 ppm below their threshold, so a reading sitting on the line
 does not flap your notifications. While CO₂ is unknown they report `unknown`
@@ -80,6 +82,12 @@ enter.
 
 The offset is there because the sensor sits inside the case next to the
 electronics and typically reads 1–3 °C high.
+
+Both thresholds are also exposed as `number` entities, so they can be put on a
+dashboard or set from an automation — to tighten the limit at night, say. They
+read and write the same options the settings dialog does, so the two can never
+drift apart, and the critical threshold is refused if it would drop to or below
+the warning one.
 
 Changing a threshold takes effect immediately and does not reopen the USB
 device, so your automations see no gap.
